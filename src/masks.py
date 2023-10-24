@@ -45,3 +45,30 @@ def reformat_date(date_: str) -> str:
         return date_[8:10] + '.' + date_[5:7] + '.' + date_[0:4]
     else:
         return 'Некорректно введена дата'
+
+
+def search_anagram(list_: list[str]) -> list[str]:
+    """
+    Функция, которая принимает на вход список строк и возвращает список строк,
+    где первая и последняя буквы совпадают. Если список пустой, то функция
+    вернёт пустой список.
+    """
+    if len(list_) == 0:
+        return []
+    return [element for element in list_ if element[0] == element[-1]]
+
+
+def return_max_composition(list_: list[int]) -> int:
+    """
+    Функция, которая принимает на вход список целых чисел и
+    возвращает максимальное произведение двух чисел из списка
+    """
+    list_of_max_count = []
+    if len(list_) < 2:
+        return 0
+    max_count_one = max(list_)
+    list_of_max_count.append(max_count_one)
+    list_.remove(max_count_one)
+    max_count_two = max(list_)
+    list_of_max_count.append(max_count_two)
+    return list_of_max_count[0] * list_of_max_count[1]
