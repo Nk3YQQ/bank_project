@@ -1,3 +1,4 @@
+from collections import defaultdict
 from typing import Optional
 
 
@@ -31,3 +32,30 @@ def sort_list_by_price(list_: list[dict], category: Optional[str] = None) -> lis
     if category is not None and category in [product['category'] for product in sorted_list]:
         return [product for product in sorted_list if category in product['category']]
     return sorted_list
+
+
+def avg_cost_and_quantity(list_: list[dict]) -> dict:
+    """
+    Функция принимает на вход список словарей, представляющих информацию о заказах в интернет-магазине и
+    возвращает словарь, содержащий информацию о средней стоимости заказа и количестве заказов за каждый месяц
+    """
+    monthly_stats = defaultdict(lambda: {'total_value': 0, 'order_count': 0})
+
+    for order in list_:
+        order_date = order['date']
+        order_items = order['items']
+
+        year_month = order_date[:7]
+
+        total_order_value = sum(item['price'] for item in order_items)
+
+        monthly_stats[year_month]['total_value'] += total_order_value
+        monthly_stats[year_month]['order_count'] += 1
+
+    statistic = {}
+    for year_month, data in monthly_stats.items():
+        average_order_value = data['total_value'] / data['order_count']
+        order_count = data['order_count']
+        statistic[year_month] = {'average_order_value': average_order_value, 'order_count': order_count}
+
+    return statistic
