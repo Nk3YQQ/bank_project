@@ -1,4 +1,4 @@
-from .masks import mask_card, mask_count
+from src.masks import mask_card, mask_count
 
 
 def mask_card_with_name(name: str, number: str) -> str:
