@@ -49,8 +49,8 @@ def avg_cost_and_quantity(list_: list[dict]) -> dict:
 
         total_order_value = sum(item["price"] for item in order_items)
 
-        monthly_stats[year_month]['total_value'] += total_order_value
-        monthly_stats[year_month]['order_count'] += 1
+        monthly_stats[year_month]["total_value"] += total_order_value
+        monthly_stats[year_month]["order_count"] += 1
 
     statistic = {}
     for year_month, data in monthly_stats.items():

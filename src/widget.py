@@ -19,7 +19,7 @@ def reformat_date(date_: str) -> str:
     Функцию, которая принимает на вход строку, вида "2018-07-11T02:26:18.671407"
     и возвращает строку с датой в виде "11.07.2018"
     """
-    if date_ == '':
+    if date_ == "":
         return "Некорректно введена дата"
     if 0 < int(date_[8:10]) <= 31 and 0 < int(date_[5:7]) <= 12:
         return date_[8:10] + "." + date_[5:7] + "." + date_[0:4]
@@ -35,7 +35,7 @@ def search_anagram(list_: list[str]) -> list[str]:
     """
     if len(list_) == 0:
         return []
-    return [element for element in list_ if element == '' or element[0] == element[-1]]
+    return [element for element in list_ if element == "" or element[0] == element[-1]]
 
 
 def return_max_composition(list_: list[int]) -> int:
