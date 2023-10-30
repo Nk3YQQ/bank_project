@@ -2,14 +2,14 @@ from collections import defaultdict
 from typing import Optional
 
 
-def get_list_with_state(list_: list[dict], value: Optional[str] = None) -> list[dict]:
+def get_list_with_state(list_: list[dict], value: Optional[str] = "EXECUTED") -> list[dict]:
     """
     Функцию принимает на вход список словарей и значение для ключа state и возвращает новый список,
     содержащий только те словари, у которых ключ state содержит переданное в функцию значение
     """
     if value == "CANCELED":
-        return [element for element in list_ if element["state"] == "CANCELED"]
-    return [element for element in list_ if element["state"] == "EXECUTED"]
+        return [element for element in list_ if element["state"] == value]
+    return [element for element in list_ if element["state"] == value]
 
 
 def sort_list_by_date(list_: list[dict], desc: bool = False) -> list[dict]:
