@@ -1,4 +1,4 @@
-from typing import Generator, Any
+from typing import Any, Generator
 
 
 def get_data() -> list[dict] | Any:
@@ -8,7 +8,8 @@ def get_data() -> list[dict] | Any:
     :return: Список с данными транзакций
     """
     import json
-    with open('data/transactions.json') as file:
+
+    with open("data/transactions.json") as file:
         data = json.load(file)
         return data
 
@@ -50,5 +51,13 @@ def card_number_generator(start: int, end: int) -> Generator:
     """
     for num in range(start, end + 1):
         card_num = f"{num:016d}"
-        formatted_card_number = " ".join([card_num[i:i + 4] for i in range(0, 16, 4)])
+        formatted_card_number = " ".join([card_num[i : i + 4] for i in range(0, 16, 4)])
         yield formatted_card_number
+
+
+def non_empty_truths(list_: list) -> list:
+    return [
+        [item for item in inner_lst if item is not None and item is not False and item != "" and item != 0]
+        for inner_lst in list_
+        if any(item for item in inner_lst if item is not None and item is not False and item != "" and item != 0)
+    ]
