@@ -1,7 +1,13 @@
 import pytest
 
-from src.generators import (card_number_generator, filter_by_currency, get_data, non_empty_truths,
-                            transaction_descriptions, transactions)
+from src.generators import (
+    card_number_generator,
+    filter_by_currency,
+    get_data,
+    non_empty_truths,
+    transaction_descriptions,
+    transactions,
+)
 
 
 @pytest.fixture
