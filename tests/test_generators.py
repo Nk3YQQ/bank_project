@@ -94,11 +94,3 @@ def test_card_number_generator() -> None:
     assert next(card_number) == "0000 0000 0000 0007"
     assert next(card_number) == "0000 0000 0000 0008"
     assert next(card_number) == "0000 0000 0000 0009"
-
-
-def test_non_empty_truths() -> None:
-    assert non_empty_truths([]) == []
-    assert non_empty_truths([[], []]) == []
-    assert non_empty_truths([[0]]) == []
-    assert non_empty_truths([[0, ""], [False, None]]) == []
-    assert non_empty_truths([[0, 1, 2], [], [], [False, True, 42]]) == [[1, 2], [True, 42]]

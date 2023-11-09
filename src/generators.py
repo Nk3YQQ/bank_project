@@ -44,11 +44,3 @@ def card_number_generator(start: int, end: int) -> Generator:
         card_num = f"{num:016d}"
         formatted_card_number = " ".join([card_num[i : i + 4] for i in range(0, 16, 4)])
         yield formatted_card_number
-
-
-def non_empty_truths(list_: list) -> list:
-    return [
-        [item for item in inner_lst if item is not None and item is not False and item != "" and item != 0]
-        for inner_lst in list_
-        if any(item for item in inner_lst if item is not None and item is not False and item != "" and item != 0)
-    ]
