@@ -1,2 +1,1 @@
-2023-11-10 18:52:44 my_function ok;
-2023-11-10 18:53:33 my_function error: can only concatenate str (not "int") to str. Inputs: ('1', 2), {};
+2023-11-11 10:37:07 my_function error: can only concatenate str (not "int") to str. Inputs: ('3', 4), {};
