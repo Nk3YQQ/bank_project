@@ -1,9 +1,9 @@
 from datetime import datetime
 from functools import wraps
-from typing import Any, Callable
+from typing import Any, Callable, Optional
 
 
-def log(filename: str | None = None) -> Callable:
+def log(filename: Optional[str] = None) -> Callable:
     """
     Декоратор логирует вызов функции и её результат в файл
     """
@@ -21,7 +21,7 @@ def log(filename: str | None = None) -> Callable:
                 status = f"{the_date} {func.__name__} error: {error}. Inputs: {args}, {kwargs}"
 
             if filename:
-                with open(f"../data/{filename}", "a", encoding="utf-8") as file:
+                with open(f"data/{filename}", "a", encoding="utf-8") as file:
                     file.write(f"{status};\n")
             else:
                 print(status)
