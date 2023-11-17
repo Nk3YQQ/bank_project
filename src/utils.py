@@ -21,6 +21,11 @@ def get_transactions(file_path: str = "../data/operations.json") -> Any:
 
 
 def get_transaction_on_rub(transaction: dict) -> float | ValueError:
+    """
+    Функцию принимает на вход одну транзакцию и возвращает сумму транзакции в рублях, если транзация совершалась в
+    рублях или ошибку ValueError с сообщением "Транзация выполнена не в рублях. Укажите транзакцию в рублях",
+    если транзакция была совершена в другой валюте.
+    """
     currency = transaction["operationAmount"]["currency"]["code"]
     amount = float(transaction["operationAmount"]["amount"])
     if currency == "RUB":
