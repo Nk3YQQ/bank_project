@@ -8,5 +8,5 @@ if __name__ == "__main__":
     mask_card("4000001234567899")
     mask_count("40817810099910004312")
 
-    transactions = get_transactions()
+    transactions = get_transactions("../data/operations.json")
     amount_in_rub = get_transaction_on_rub(transactions[0])

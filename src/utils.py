@@ -5,7 +5,7 @@ from typing import Any
 logger = logging.getLogger(__name__)
 
 
-def get_transactions(file_path: str = "../data/operations.json") -> Any:
+def get_transactions(file_path: str = "data/operations.json") -> Any:
     """
     Функция принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях.
     Если файл пустой, содержит не список или не найден, функция возвращает пустой список.
